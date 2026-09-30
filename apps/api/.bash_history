@@ -41,3 +41,17 @@ exit
 php artisan vendor:publish --
 provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
 exit
+php artisan migrate -fresh
+php artisan migrate --fresh
+clear
+php artisan migrate -fresh
+ls -la
+ls -la vendor
+composer install 
+php artisan migrate:fresh
+php artisan db:seed UserSeeder
+php artisan make:request AuthLoginRequest
+composer require dedoc/scramble
+php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+php artisan key:generate
+exit
