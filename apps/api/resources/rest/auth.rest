@@ -1,9 +1,9 @@
 ### Login
 POST {{baseUri}}/auth/login HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{accessToken}}
+
 
 {
- "username": "welch.maybelle@example.org",
+ "username": "pat95@example.org",
  "password": "password"
 }

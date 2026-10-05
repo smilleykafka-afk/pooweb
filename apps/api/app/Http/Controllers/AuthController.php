@@ -13,12 +13,14 @@ class AuthController extends Controller
 {
     public function login(AuthLoginRequest $request)
     {
+        //return $request->validated();
         //Obtém os dados informados pelo usuário na tentativa de login    
         $username = $request->validated('username');
         $password = $request->validated('password');
 
         // Tenta carregar o usuário pelo username (email)
         $user = User::firstWhere('email', $username);
+        
 
         if (
             //Se houver usuário tenta validar a senha informada
