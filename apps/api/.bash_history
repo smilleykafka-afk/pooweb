@@ -55,3 +55,8 @@ composer require dedoc/scramble
 php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
 php artisan key:generate
 exit
+php artisan routes::lists
+php artisan route::lists
+php artisan route:lists
+php artisan route:list
+exit
