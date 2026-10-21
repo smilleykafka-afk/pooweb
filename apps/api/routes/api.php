@@ -1,25 +1,27 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CostumerController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadController;
 
-
-//Registrar rota de login
+// Rota de login - não precisa estar autenticado
 Route::post('auth/login', [AuthController::class, 'login']);
 
-// Mover rotas da aplicação (CRUD) para um grupo protegido.
+// Rotas protegidas pelo Sanctum
 Route::group([
     'middleware' => [
         'auth:sanctum',
     ]
 ], function () {
     Route::apiResource('categories', CategoryController::class);
-    Route::apiResource('costumers', CostumerController::class);
     Route::apiResource('products', ProductController::class);
+    Route::apiResource('customers', CustomerController::class);
     Route::apiResource('orders', OrderController::class);
-});
-
+    Route::apiResource('reviews', ReviewController::class);
+    Route::post('/upload', [UploadController::class, 'upload']);
+    });
