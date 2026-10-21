@@ -2,7 +2,14 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
         <q-toolbar-title> Quasar App </q-toolbar-title>
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
@@ -11,7 +18,11 @@
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
         <q-item-label header> MENU </q-item-label>
-        <EssentialLink v-for="link in linksList" :key="link.label" v-bind="link" />
+        <EssentialLink
+          v-for="link in linksList"
+          :key="link.label"
+          v-bind="link"
+        />
       </q-list>
     </q-drawer>
 
@@ -32,13 +43,18 @@ const linksList = [
     icon: 'category',
     link: '/admin/categories',
   },
-
   {
     label: 'Produtos',
     caption: 'produtos',
-    icon: 'product',
+    icon: 'inventory_2',
     link: '/admin/products',
-  }
+  },
+  {
+    label: 'Clientes',
+    caption: 'clientes',
+    icon: 'people',
+    link: '/admin/customers',
+  },
 ]
 
 const leftDrawerOpen = ref(false)
